@@ -2,24 +2,24 @@
 
 int main()
 {
-    MyString kutay;
-    MyString deniz;
+    MyString str1;
+    MyString str2;
 
-    kutay = "Kutay";
-    deniz = "Deniz";
+    str1 = "Hello";
+    str2 = "HelloWorld";
 
-    kutay.display();
-    deniz.display();
+    str1.display();
+    str2.display();
 
-    deniz = -deniz;
-    deniz.display();
+    str2 = -str2;
+    str2.display();
 
-    kutay += deniz;
-    kutay.display();
+    str1 += str2;
+    str1.display();
 
-    kutay = kutay*3;
-    kutay.display();
+    str1 = str1*3;
+    str1.display();
 
-    kutay *= 2;
-    kutay.display();
+    str1 *= 2;
+    str1.display();
 }
