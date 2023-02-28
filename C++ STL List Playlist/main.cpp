@@ -113,6 +113,7 @@ int main()
             std::string artist;
             int rating;
             std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Enter the name of the new song : ";
             getline(std::cin, songName);
             std::cout << "Enter the song artist : ";
