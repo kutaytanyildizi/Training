@@ -33,5 +33,5 @@ double calculateAverage(double sum, double total)
     {
         throw 0;
     }
-    return static_cast<double> (sum / total);
+    return (sum / total);
 }
