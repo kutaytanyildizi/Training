@@ -13,18 +13,23 @@ class Singleton
 {
 private:
     Singleton() = default;
+    static Singleton *singleton;
     int data;
     friend std::ostream &operator<<(std::ostream &os, const Singleton &sngl)
     {
-        os << Singleton::getInstance().getData();
+        os << sngl.getData();
         return os; 
     }
 
 public:
-    static Singleton& getInstance()
+    static Singleton* getInstance()
     {
-        static Singleton instance;
-        return instance;
+        if (singleton == nullptr)
+        {
+            singleton = new Singleton;
+        }
+        return singleton;
+        
     }
     Singleton(const Singleton&) = delete;
     Singleton(Singleton&&) = delete;
@@ -42,12 +47,12 @@ public:
 
 int main()
 {
-    Singleton& singleton1 = Singleton::getInstance();
-    singleton1.setData(20);
+    Singleton* singleton1 = singleton1->getInstance();
+    singleton1->setData(20);
     std::cout << "Singleton 1 Data = " << singleton1 << std::endl;
-    Singleton& singleton2 = Singleton::getInstance();
+    Singleton* singleton2 = Singleton::getInstance();
     std::cout << "Singleton 2 Data = " << singleton2 << std::endl;
-    Singleton::getInstance().setData(50);
+    Singleton::getInstance()->setData(50);
     std::cout << "Singleton 1 Data = " << singleton1 << std::endl;
     std::cout << "Singleton 2 Data = " << singleton2 << std::endl;
 }
